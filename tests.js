@@ -241,33 +241,34 @@ describe('Funciones (II)', () => {
     let result = g('Cerebro', 'Pinky');
 
     // substituye "???" por el valor que tiene la variable "result"
-    expect(result === '???').to.be.true;
+    expect(result === 'Son Pinky y Cerebro').to.be.true;
   });
 
   it('Cuál es el resultado de invocar la función? (3)', () => {
     // substituye "???" por el resultado en cada caso
-    expect(h('khaleesi mother of dragons breaker of chains') === '???').to.be
-      .true;
-    expect(h('sarah') === '???').to.be.true;
-    expect(h('bob') === '???').to.be.true;
-    expect(h('robertson') === '???').to.be.true;
+    expect(h('khaleesi mother of dragons breaker of chains') === 'very long').to
+      .be.true;
+    expect(h('sarah') === 'adecquate').to.be.true;
+    expect(h('bob') === 'too short').to.be.true;
+    expect(h('robertson') === 'long').to.be.true;
   });
 });
 
 describe('Colecciones en JS: Array', () => {
   it('Pueden crearse usando [ ]', () => {
     // crea un array "a" usando los corchetes []
-
+    let a = [1, 2, 5, 7, 10];
     expect(Array.isArray(a)).to.be.true;
   });
   it('Pueden crearse usando new Array', () => {
     // crea un array "a" usando el constructor "new"
-
+    let a = new Array('Fresas', 'Peras', 'Manzanas', 'Cerezas', 'Plátanos');
     expect(Array.isArray(a)).to.be.true;
   });
   it('Pueden estar vacíos o contener elementos', () => {
     // crea un array que esté vacío y otro que no esté vacío
-
+    let emptyArray = [];
+    let nonEmptyArray = ['Juan', 'Pedro', 'Marc'];
     expect(emptyArray).to.be.empty;
     expect(nonEmptyArray).not.to.be.empty;
   });
@@ -276,21 +277,21 @@ describe('Colecciones en JS: Array', () => {
 
     // completa la definición que falta usando la propiedad length
 
-    expect('???').to.equal(4);
+    expect(list.length).to.equal(4);
   });
   it('Nos permiten acceder a cada elemento del array', () => {
     let fruits = ['Piña', 'Manzana', 'Fresa', 'Melón'];
 
     // sustituye "???" en cada caso para acceder al elemento correspondiente de la lista
 
-    expect('???').to.equal('Piña');
-    expect('???').to.equal('Melón');
+    expect(fruits[0]).to.equal('Piña');
+    expect(fruits[3]).to.equal('Melón');
   });
   it('Nos permiten modificar cada elemento', () => {
     let fruits = ['Piña', 'Manzana', 'Fresa', 'Melón'];
 
     // Añade el código que permite modificar el elemento correspondiente
-
+    fruits[1] = 'Pera';
     expect(fruits).to.have.same.members(['Piña', 'Pera', 'Fresa', 'Melón']);
   });
 
@@ -298,7 +299,7 @@ describe('Colecciones en JS: Array', () => {
     let fruits = ['Piña', 'Manzana', 'Fresa', 'Melón'];
 
     // Añade el código que permite modificar la lista (incluyendo un elemento al final)
-
+    fruits.push('Pera');
     expect(fruits).to.have.same.members([
       'Piña',
       'Manzana',
@@ -394,7 +395,7 @@ describe('Operaciones iterables', () => {
     let list = [1, 5, 7, 9, 11, 13];
 
     // utiliza la función map para aplicar los números de la lista
-    list = '???';
+    list = list.map((n) => n - 1);
 
     expect(list).to.have.same.members([0, 4, 6, 8, 10, 12]);
   });
@@ -403,7 +404,7 @@ describe('Operaciones iterables', () => {
     let list = ['Pikachu', 'Charmander', 'Magikarp'];
 
     // utiliza la función map para aplicar los números de la lista y guardar la nueva lista en result
-
+    let result = list.map((name) => name + ', te elijo a ti!');
     expect(result).to.have.same.members([
       'Pikachu, te elijo a ti!',
       'Charmander, te elijo a ti!',
@@ -434,7 +435,7 @@ describe('Operaciones iterables', () => {
     ];
 
     // utiliza la función includes para comprobar si la lista de planetas contiene el planeta TOI-1634 b
-    let result = '???';
+    let result = knownExoplanets.includes('TOI-1634 b');
 
     expect(result).to.equal(true);
   });
@@ -464,7 +465,7 @@ describe('Operaciones iterables', () => {
     // utiliza la función filter para quedarnos con los planetas que terminan por la letra c
     // puedes utilizar la función .endsWith para comprobar si un string termina por una letra
     // p.ej. "Hola".endsWith('a') devuelve true
-    let result = '???';
+    let result = knownExoplanets.filter((planet) => planet.endsWith('c'));
 
     // todos los planetas de result terminan con la letra c
     expect(result.every((p) => p.endsWith('c'))).to.equal(true);
